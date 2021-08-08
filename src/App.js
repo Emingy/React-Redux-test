@@ -1,3 +1,5 @@
+import { useState } from "react";
+import AddToCart from "./components/AddToCart";
 import Table from "./components/Table";
 
 
@@ -18,30 +20,13 @@ var def = [
   },
 ]
 function App() {
+  const [totalPrice, setTotalPrice] = useState({})
   return (
-    <div className="container pt-3">
-      <Table/>
-      {/* <table className="table table-bordered table-responsive border-primary">
-        <thead>
-          <tr>
-            <th colspan="5" rowspan="1">
-              <h1 className="text-center">Название раздела</h1>
-            </th>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Название товара</th>
-            <th>Цена</th>
-            <th>Количество</th>
-            <th>Сумма</th>
-          </tr>
-        </thead>
-        <tbody>
-        
-        </tbody>
-      </table> */}
+    <div className="pt-3">
+      <div className="container">
+        <Table setTotalPrice={setTotalPrice} totalPrice={totalPrice}/>
+      </div>
+      <AddToCart totalPrice={totalPrice}/>
     </div>
   );
 }

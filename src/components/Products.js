@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect, useDispatch, useSelector} from 'react-redux';
-import { getProducts } from '../actions/actions';
 import Product from './Product';
 
 

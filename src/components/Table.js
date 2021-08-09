@@ -5,13 +5,17 @@ import Products from './Products';
 
 
 
-const Table = ({setTotalPrice, totalPrice})=>{
+const Table = ({setTotalPrice, totalPrice, setPages, filter})=>{
     const dispatch = useDispatch()
     window.addEventListener("load", () => dispatch(getProducts()));
     const products = useSelector(state => state.products.products)
+    setPages(products.map(product => product.rname!==undefined ? product.rname : ''))
     return (
         <table className="table table-bordered table-responsive border-primary">
             {products.map((product, i) => {
+                if(filter!=='all' && product.rname!==filter){
+                    return
+                }
                 return (
                     <tbody key={i}>
                         <tr>

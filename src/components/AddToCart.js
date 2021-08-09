@@ -4,8 +4,10 @@ import { addProducts } from '../actions/actions';
 
 const AddToCart = ({totalPrice})=>{
     const dispatch = useDispatch()
-    const isSuccess = useSelector(state => state.addToCart.response)
-    console.log(isSuccess)
+    const isAdded = useSelector(state => state.addToCart.response)
+    if(Object.keys(isAdded).length > 0){
+        console.log(isAdded)
+    }
     var sums = Object.keys(totalPrice).map(product=> totalPrice[product].sum)
     const submitHandler = () => {
         var data = {
